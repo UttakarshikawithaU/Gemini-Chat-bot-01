@@ -17,6 +17,8 @@ from langchain_core import *
 from langchain.memory.summary import ConversationSummaryMemory
 from langchain.chains import ConversationChain
 
+nltk.download('punkt')
+
 # Load environment variables
 load_dotenv()
 os.getenv("GOOGLE_API_KEY")
