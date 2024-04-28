@@ -1,0 +1,1 @@
+avg_bleurt_score = sum(bleurt_scores) / len(bleurt_scores)
