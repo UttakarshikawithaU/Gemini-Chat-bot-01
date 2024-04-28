@@ -138,7 +138,7 @@ def user_input(user_question, pdf_docs, ground_truth_answer, domain, history):
     filtered_documents = new_filtered_docs.similarity_search(user_question)     
     
     summary = memory
-    st.write("memory: ", memory)
+    # st.write("memory: ", memory)
     prompt_template = """     Context:
                               {context}?
     
@@ -175,10 +175,10 @@ def user_input(user_question, pdf_docs, ground_truth_answer, domain, history):
         "f1_score": f1_score_value,
     })
 
-    with st.sidebar:
-        st.success("Evaluation Metrics:")
-        for point in bullet_points:
-            st.success(f"- {point}")
+    # with st.sidebar:
+    #     st.success("Evaluation Metrics:")
+    #     for point in bullet_points:
+    #         st.success(f"- {point}")
     
     return output, history_print
 
