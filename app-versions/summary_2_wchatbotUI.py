@@ -119,7 +119,7 @@ def user_input(user_question, pdf_docs, ground_truth_answer, domain, history):
     text_chunks = get_text_chunks(raw_text)
     get_vector_store(text_chunks)
  
-    new_db = FAISS.load_local("faiss_index", GoogleGenerativeAIEmbeddings(model="models/embedding-001"), allow_dangerous_deserialization=True)
+    new_db = FAISS.load_local("faiss_index", GoogleGenerativeAIEmbeddings(model="models/embedding-001"))
     docs = new_db.similarity_search(user_question)
     
     prompt_text = """from context below return text chunks relevant to the question : {question}? Context: {context} """ 
@@ -132,7 +132,7 @@ def user_input(user_question, pdf_docs, ground_truth_answer, domain, history):
     
     filtered_text_chunks = get_text_chunks(filtered_docs)
     get_vector_store_for_filtered_docs(filtered_text_chunks)
-    new_filtered_docs = FAISS.load_local("filtered_faiss_index", GoogleGenerativeAIEmbeddings(model="models/embedding-001"), allow_dangerous_deserialization=True)
+    new_filtered_docs = FAISS.load_local("filtered_faiss_index", GoogleGenerativeAIEmbeddings(model="models/embedding-001"))
     filtered_documents = new_filtered_docs.similarity_search(user_question)     
     
     summary = memory
